@@ -32,7 +32,7 @@ function Garden() {
 			setFertilizerDescription('Chemical fertilizer has been applied. The plant might grow faster but cancer is a risk.')
 		}
 
-	}, [fertilizer]) // This second parameter is called a DEPENDENCY ARRAY and it determines if the useEffect will run.
+	}, [fertilizer]) // This second parameter is called a DEPENDENCY ARRAY and it determines when the useEffect will run.
 	// useEffect will only run when the `fertilizer` variable changes.
 
 	
