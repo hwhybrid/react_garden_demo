@@ -8,18 +8,22 @@ import { useState, useEffect } from 'react';
 
 
 function Garden() {
+	// The following are different conditions or states that we are tracking in order to use in some meaningful way
 	const [needsWater, setWatered] = useState(true)
     const [fertilizer, setFertilizer] = useState('none');
 	const [fertilizerDescription, setFertilizerDescription] = useState('');
-	// const [sunlight, setSunlight] = useState('morning')
 	
 	const waterPlant = () => {setWatered(!needsWater)}
 
+	// This handler function will handle changes in the fertilizer selection. 
+	// The selection is determined by the user in the setFertilixer methods input value: event.target.value
 	const handleFertilizerChange = (event) => {
 		setFertilizer(event.target.value);
 	} 
-
-	useEffect(() => {
+// The useEffect hook will update the fertilizer description whenever the fertilizer state changes
+	useEffect(
+		// useEffect takes 2 parameters: a function , and an array of dependencies or a dependency array
+		() => {
 		if (fertilizer === 'none') {
 			setFertilizerDescription('No fertilizer has been applied.')
 		} else if (fertilizer === 'organic') {
